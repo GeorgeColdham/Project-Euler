@@ -1,16 +1,13 @@
 const limit = 1000
 
-const calculateNextValue = (numToCheck = 1, total = 0) => {
-    if (numToCheck >= limit) {
+const calculateNextValue = (num = 1, total = 0) => {
+    if (num >= limit) {
         return total
     }
-    if (numToCheck % 3 === 0) {
-        return calculateNextValue(numToCheck + 1, total + numToCheck)
+    if (num % 3 === 0 ||  num % 5 === 0) {
+        return calculateNextValue(num + 1, total + num)
     }
-    if (numToCheck % 5 === 0) {
-        return calculateNextValue(numToCheck + 1, total + numToCheck)
-    }
-    return calculateNextValue(numToCheck + 1, total)
+    return calculateNextValue(num + 1, total)
 }
 
 console.log(calculateNextValue())
